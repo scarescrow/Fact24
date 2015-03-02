@@ -45,7 +45,5 @@
         android:text="NEXT ->"
         android:textSize="40dp"
         android:layout_weight="0.11"
-        android:id="@+id/next"
-        android:onClick="next"
-        />
+        android:id="@+id/next" />
 </LinearLayout>

@@ -155,4 +155,27 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     }
 
+    public String[] getNewFact(int id) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String query = "SELECT * FROM facts WHERE _id = " + String.valueOf(id);
+        String[] values = new String[2];
+
+        Cursor cursor = db.rawQuery(query, null);
+
+        Log.d("Check", String.valueOf(id));
+        if(cursor != null && cursor.getCount()> 0) {
+
+            cursor.moveToFirst();
+
+            values[0] = cursor.getString(1);
+            values[1] = cursor.getString(2);
+
+            return values;
+        }
+
+        return null;
+    }
+
 }
