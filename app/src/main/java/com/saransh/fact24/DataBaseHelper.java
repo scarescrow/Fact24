@@ -172,8 +172,14 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             values[0] = cursor.getString(1);
             values[1] = cursor.getString(2);
 
+            cursor.close();
+            db.close();
+
             return values;
         }
+
+        cursor.close();
+        db.close();
 
         return null;
     }
