@@ -21,7 +21,6 @@ public class facts extends ActionBarActivity {
 
     DataBaseHelper myDbHelper;
     TextView title,detail;
-    int rand;
     Button b;
 
     @Override
@@ -31,8 +30,7 @@ public class facts extends ActionBarActivity {
         title=(TextView)findViewById(R.id.title);
         detail=(TextView)findViewById(R.id.detail);
         b = (Button) findViewById(R.id.next);
-        rand= (int)(Math.random()%24);
-
+        
         myDbHelper = new DataBaseHelper(this);
         try {
 
@@ -65,7 +63,10 @@ public class facts extends ActionBarActivity {
     }
     public void next(View view)
     {
-        rand= (int)(Math.random()%24) + 1; //+1 because in the databse, _id starts from 1
+        Random random = new Random();
+
+        int rand = random.nextInt(24);
+        rand += 1; //+1 because in the databse, _id starts from 1
 
         String[] values = myDbHelper.getNewFact(rand);
 
